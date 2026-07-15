@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mad Tech Solutions — Mad About Anything Digital</title>
+  <meta name="description" content="Mad Tech Solutions is a digital studio from India. We take mad ideas and engineer them into websites, apps, AI and growth engines." />
+  <meta property="og:title" content="Mad Tech Solutions — Mad About Anything Digital" />
+  <meta property="og:description" content="Websites. Apps. AI. Growth. Engineered, not templated." />
+  <meta name="theme-color" content="#0a0a0b" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=tanker@400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <script>if ("scrollRestoration" in history) history.scrollRestoration = "manual";</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+</head>
+<body>
+
+  <!-- WebGL background -->
+  <canvas id="gl" aria-hidden="true"></canvas>
+
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-brand">MAD<b>TECH</b></span>
+      <span class="loader-count" id="loaderCount">00</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav">
+    <a class="nav-brand" href="#top" data-scroll>MAD<b>TECH</b><span class="nav-brand-dot">®</span></a>
+    <nav class="nav-links">
+      <a href="#work" data-scroll>Work</a>
+      <a href="#capabilities" data-scroll>Capabilities</a>
+      <a href="#contact" data-scroll class="nav-cta">Start a project</a>
+    </nav>
+  </header>
+
+  <!-- Scroll world -->
+  <div id="scroll">
+    <main id="top">
+
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="hero">
+        <p class="eyebrow reveal"><span class="tick"></span>Mad Tech Solutions — Digital Studio · India · Worldwide</p>
+        <h1 class="hero-title" aria-label="Mad about anything digital.">
+          <span class="line"><span class="word">M<em>A</em>D</span> <span class="word ghost">about</span></span>
+          <span class="line"><span class="word">ANYTHING</span></span>
+          <span class="line"><span class="word grad">DIGITAL.</span></span>
+        </h1>
+        <div class="hero-foot">
+          <p class="hero-sub reveal">We take mad ideas and engineer them into websites, apps and AI that outgrow expectations.</p>
+          <div class="hero-cta reveal">
+            <a class="btn" href="#contact" data-scroll data-cursor="Let's go"><span>Start your project</span></a>
+            <a class="btn ghost-btn" href="#work" data-scroll><span>Selected work</span></a>
+          </div>
+        </div>
+        <div class="hero-badge reveal" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs>
+              <path id="badge-circle" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+            </defs>
+            <text><textPath href="#badge-circle">MAKE ANYTHING DIGITAL · EST 2025 · MAD TECH ·&#160;</textPath></text>
+          </svg>
+          <span class="hero-badge-core">&lt;/&gt;</span>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span></span>SCROLL</div>
+      </section>
+
+      <!-- ============ MANIFESTO ============ -->
+      <section class="manifesto">
+        <p class="section-tag reveal">The point</p>
+        <h2 class="statement" data-split>We don't build websites. We build _growth engines._</h2>
+        <p class="manifesto-note reveal">Every pixel, every line of code, every campaign — engineered with one purpose: to make your business move faster than it thought it could.</p>
+      </section>
+
+      <!-- ============ WORK ============ -->
+      <section class="work" id="work">
+        <div class="section-head">
+          <p class="section-tag reveal">Selected work</p>
+          <p class="section-count reveal">2024 — 2026</p>
+        </div>
+        <ul class="work-list">
+          <li class="work-item reveal">
+            <a href="https://vijayvarma-legend.github.io/krissmagicc-website/" target="_blank" rel="noopener" data-cursor="Visit ↗">
+              <span class="work-idx">01</span>
+              <span class="work-name">Kriss Magic</span>
+              <span class="work-meta">Entertainment & Events · 2025</span>
+              <span class="work-arrow">↗</span>
+            </a>
+          </li>
+          <li class="work-item reveal">
+            <a href="https://rideforyouev.com/" target="_blank" rel="noopener" data-cursor="Visit ↗">
+              <span class="work-idx">02</span>
+              <span class="work-name">Ride For You EV</span>
+              <span class="work-meta">EV Rental Platform · 2025</span>
+              <span class="work-arrow">↗</span>
+            </a>
+          </li>
+          <li class="work-item reveal">
+            <a href="https://shaikandreddyassociates.com/" target="_blank" rel="noopener" data-cursor="Visit ↗">
+              <span class="work-idx">03</span>
+              <span class="work-name">Shaik & Reddy</span>
+              <span class="work-meta">Legal & Corporate · 2025</span>
+              <span class="work-arrow">↗</span>
+            </a>
+          </li>
+          <li class="work-item reveal">
+            <a href="https://madhukunchalaa.github.io/Shoot-SIte/index.html" target="_blank" rel="noopener" data-cursor="Visit ↗">
+              <span class="work-idx">04</span>
+              <span class="work-name">Shoot @ Sight</span>
+              <span class="work-meta">Photography Studio · 2024</span>
+              <span class="work-arrow">↗</span>
+            </a>
+          </li>
+          <li class="work-item reveal">
+            <a href="https://madhukunchalaa.github.io/busin/restaurant/index.html" target="_blank" rel="noopener" data-cursor="Visit ↗">
+              <span class="work-idx">05</span>
+              <span class="work-name">The Grand Table</span>
+              <span class="work-meta">Restaurant · 2024</span>
+              <span class="work-arrow">↗</span>
+            </a>
+          </li>
+          <li class="work-item reveal">
+            <a href="https://madhukunchalaa.github.io/organic-project/" target="_blank" rel="noopener" data-cursor="Visit ↗">
+              <span class="work-idx">06</span>
+              <span class="work-name">Organic Co.</span>
+              <span class="work-meta">E-Commerce Brand · 2024</span>
+              <span class="work-arrow">↗</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ============ CAPABILITIES ============ -->
+      <section class="caps" id="capabilities">
+        <p class="section-tag reveal">Capabilities</p>
+        <div class="cap reveal">
+          <span class="cap-idx">01</span>
+          <h3>Web Engineering</h3>
+          <p>React · Next.js · Node — pixel-perfect and blazing fast.</p>
+        </div>
+        <div class="cap reveal">
+          <span class="cap-idx">02</span>
+          <h3>Mobile Apps</h3>
+          <p>Flutter & React Native — native feel, shipped on time.</p>
+        </div>
+        <div class="cap reveal">
+          <span class="cap-idx">03</span>
+          <h3>AI & Automation</h3>
+          <p>Chatbots and agents that sell, support and scale — 24/7.</p>
+        </div>
+        <div class="cap reveal">
+          <span class="cap-idx">04</span>
+          <h3>Growth</h3>
+          <p>SEO, paid media and funnels measured in revenue, not likes.</p>
+        </div>
+
+        <div class="stats reveal">
+          <div><b data-counter="15">0</b><span>+ projects shipped</span></div>
+          <div><b data-counter="10">0</b><span>+ happy clients</span></div>
+          <div><b data-counter="48">0</b><span>h free demo delivery</span></div>
+          <div><b data-counter="100">0</b><span>% mad about it</span></div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="contact" id="contact">
+        <p class="section-tag reveal">Got a mad idea?</p>
+        <a class="contact-big" href="mailto:madtechsolutions.in@gmail.com" data-cursor="Email us" data-split>LET'S TALK</a>
+        <div class="contact-row reveal">
+          <a href="mailto:madtechsolutions.in@gmail.com">madtechsolutions.in@gmail.com</a>
+          <span class="sep">/</span>
+          <a href="tel:+917095682464">+91 70956 82464</a>
+        </div>
+        <p class="contact-note reveal">Free custom demo in 48 hours. No templates, no catch.</p>
+
+        <footer class="footer">
+          <span>© 2026 Mad Tech Solutions</span>
+          <span class="footer-tag">Make Anything Digital<b>.</b></span>
+          <span>India · Remote worldwide</span>
+        </footer>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
