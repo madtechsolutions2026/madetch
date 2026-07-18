@@ -83,6 +83,19 @@ if (finePointer) {
       cursor.classList.remove("is-hover");
     });
   });
+} else {
+  // Mobile tactile swipe/touch indicator feedback
+  addEventListener("touchstart", (e) => {
+    const touch = e.touches[0];
+    const ripple = document.createElement("div");
+    ripple.className = "touch-ripple";
+    ripple.style.left = `${touch.clientX}px`;
+    ripple.style.top = `${touch.clientY}px`;
+    document.body.appendChild(ripple);
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  }, { passive: true });
 }
 
 /* ------------------------------------------------------------

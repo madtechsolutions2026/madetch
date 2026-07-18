@@ -73,7 +73,11 @@
           </svg>
           <span class="hero-badge-core">&lt;/&gt;</span>
         </div>
-        <div class="scroll-cue" aria-hidden="true"><span></span>SCROLL</div>
+        <div class="scroll-cue" aria-hidden="true">
+          <span></span>
+          <span class="cue-scroll">SCROLL</span>
+          <span class="cue-swipe">SWIPE UP</span>
+        </div>
       </section>
 
       <!-- ============ MANIFESTO ============ -->
@@ -91,16 +95,24 @@
         </div>
         <ul class="work-list">
           <li class="work-item reveal">
-            <a href="https://vijayvarma-legend.github.io/krissmagicc-website/" target="_blank" rel="noopener" data-cursor="Visit ↗">
+            <a href="https://www.krissmaagiiccrystals.com/" target="_blank" rel="noopener" data-cursor="Visit ↗">
               <span class="work-idx">01</span>
-              <span class="work-name">Kriss Magic</span>
-              <span class="work-meta">Entertainment & Events · 2025</span>
+              <span class="work-name">Kriss Maagiic Crystals</span>
+              <span class="work-meta">Crystals & Wellness · 2025</span>
+              <span class="work-arrow">↗</span>
+            </a>
+          </li>
+          <li class="work-item reveal">
+            <a href="http://shootatsightweddings.com/" target="_blank" rel="noopener" data-cursor="Visit ↗">
+              <span class="work-idx">02</span>
+              <span class="work-name">Shoot @ Sight</span>
+              <span class="work-meta">Photography & Films · 2025</span>
               <span class="work-arrow">↗</span>
             </a>
           </li>
           <li class="work-item reveal">
             <a href="https://rideforyouev.com/" target="_blank" rel="noopener" data-cursor="Visit ↗">
-              <span class="work-idx">02</span>
+              <span class="work-idx">03</span>
               <span class="work-name">Ride For You EV</span>
               <span class="work-meta">EV Rental Platform · 2025</span>
               <span class="work-arrow">↗</span>
@@ -108,33 +120,9 @@
           </li>
           <li class="work-item reveal">
             <a href="https://shaikandreddyassociates.com/" target="_blank" rel="noopener" data-cursor="Visit ↗">
-              <span class="work-idx">03</span>
-              <span class="work-name">Shaik & Reddy</span>
-              <span class="work-meta">Legal & Corporate · 2025</span>
-              <span class="work-arrow">↗</span>
-            </a>
-          </li>
-          <li class="work-item reveal">
-            <a href="https://madhukunchalaa.github.io/Shoot-SIte/index.html" target="_blank" rel="noopener" data-cursor="Visit ↗">
               <span class="work-idx">04</span>
-              <span class="work-name">Shoot @ Sight</span>
-              <span class="work-meta">Photography Studio · 2024</span>
-              <span class="work-arrow">↗</span>
-            </a>
-          </li>
-          <li class="work-item reveal">
-            <a href="https://madhukunchalaa.github.io/busin/restaurant/index.html" target="_blank" rel="noopener" data-cursor="Visit ↗">
-              <span class="work-idx">05</span>
-              <span class="work-name">The Grand Table</span>
-              <span class="work-meta">Restaurant · 2024</span>
-              <span class="work-arrow">↗</span>
-            </a>
-          </li>
-          <li class="work-item reveal">
-            <a href="https://madhukunchalaa.github.io/organic-project/" target="_blank" rel="noopener" data-cursor="Visit ↗">
-              <span class="work-idx">06</span>
-              <span class="work-name">Organic Co.</span>
-              <span class="work-meta">E-Commerce Brand · 2024</span>
+              <span class="work-name">Shaik & Reddy Associates</span>
+              <span class="work-meta">Legal & Corporate · 2025</span>
               <span class="work-arrow">↗</span>
             </a>
           </li>
@@ -176,13 +164,48 @@
       <!-- ============ CONTACT ============ -->
       <section class="contact" id="contact">
         <p class="section-tag reveal">Got a mad idea?</p>
-        <a class="contact-big" href="mailto:madtechsolutions.in@gmail.com" data-cursor="Email us" data-split>LET'S TALK</a>
-        <div class="contact-row reveal">
-          <a href="mailto:madtechsolutions.in@gmail.com">madtechsolutions.in@gmail.com</a>
-          <span class="sep">/</span>
-          <a href="tel:+917095682464">+91 70956 82464</a>
+        <div class="contact-grid">
+          <!-- Left side: Big text + Quick connects -->
+          <div class="contact-info">
+            <a class="contact-big" href="mailto:madtechsolutions.in@gmail.com" data-cursor="Email us" data-split>LET'S TALK</a>
+            <div class="contact-channels reveal">
+              <a href="mailto:madtechsolutions.in@gmail.com" class="contact-link" data-cursor="Write email">
+                <span class="channel-label">Email</span>
+                <span class="channel-val">madtechsolutions.in@gmail.com</span>
+              </a>
+              <a href="https://wa.me/917095682464" target="_blank" rel="noopener" class="contact-link" data-cursor="WhatsApp">
+                <span class="channel-label">WhatsApp</span>
+                <span class="channel-val">+91 70956 82464</span>
+              </a>
+              <a href="tel:+917095682464" class="contact-link" data-cursor="Call us">
+                <span class="channel-label">Phone</span>
+                <span class="channel-val">+91 70956 82464</span>
+              </a>
+            </div>
+            <p class="contact-note reveal">Free custom demo in 48 hours. No templates, no catch.</p>
+          </div>
+
+          <!-- Right side: Minimalist form -->
+          <div class="contact-form-wrap reveal">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyyqpewy" method="POST">
+              <div class="form-group">
+                <input type="text" id="form-name" name="name" required placeholder=" " />
+                <label for="form-name">Your Name</label>
+              </div>
+              <div class="form-group">
+                <input type="email" id="form-email" name="email" required placeholder=" " />
+                <label for="form-email">Email Address</label>
+              </div>
+              <div class="form-group">
+                <textarea id="form-message" name="message" required placeholder=" " rows="4"></textarea>
+                <label for="form-message">Tell us about your project</label>
+              </div>
+              <button type="submit" class="btn" data-cursor="Send it">
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
         </div>
-        <p class="contact-note reveal">Free custom demo in 48 hours. No templates, no catch.</p>
 
         <footer class="footer">
           <span>© 2026 Mad Tech Solutions</span>
