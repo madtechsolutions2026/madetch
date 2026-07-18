@@ -468,7 +468,11 @@ function loop() {
   group.rotation.x = (eased.y / innerHeight - 0.5) * 0.25 + alt * 0.5;
   group.position.x = (isMobile ? 0 : 1.6) * (1 - smoothstep(p, 0.05, 0.4));
   group.position.y = Math.sin(t * 0.3) * 0.08;
-  group.scale.setScalar(1 + smoothstep(p, 0.85, 1) * 0.35);
+
+  // Dynamic responsive scaling for 3D shapes on mobile/portrait aspect ratios
+  const aspect = innerWidth / innerHeight;
+  const baseScale = aspect < 0.85 ? aspect * 1.15 : 1;
+  group.scale.setScalar(baseScale * (1 + smoothstep(p, 0.85, 1) * 0.35));
   camera.position.z = 6 - p * 1.2;
 
   // project the cursor into the cloud's local space for repulsion
