@@ -595,11 +595,18 @@ body.ready .hero-title .char { transform: none; }
   transition: border-color 0.4s var(--ease);
 }
 .channel-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-faint);
   transition: color 0.3s;
+}
+.channel-icon {
+  fill: currentColor;
+  flex-shrink: 0;
 }
 .channel-val {
   font-size: clamp(16px, 1.8vw, 22px);
