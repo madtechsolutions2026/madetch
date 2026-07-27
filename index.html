@@ -13,9 +13,10 @@
   <link rel="canonical" href="https://www.madtechsolutions.tech/" />
 
   <!-- Favicon Links for Browsers and Google Search -->
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <link rel="apple-touch-icon" href="favicon.png" />
+  <link rel="shortcut icon" href="https://www.madtechsolutions.tech/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="https://www.madtechsolutions.tech/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="192x192" href="https://www.madtechsolutions.tech/favicon.png" />
+  <link rel="apple-touch-icon" sizes="192x192" href="https://www.madtechsolutions.tech/favicon.png" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -48,14 +49,38 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
 
-  <!-- Schema.org JSON-LD Structured Data -->
+  <!-- Schema.org JSON-LD Structured Data for Google Search Favicon & Logo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MadTech Solutions",
+    "alternateName": ["Mad Tech Solutions", "MadTech Solutions Tech"],
+    "url": "https://www.madtechsolutions.tech/"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "MadTech Solutions",
+    "url": "https://www.madtechsolutions.tech/",
+    "logo": "https://www.madtechsolutions.tech/favicon.png",
+    "image": "https://www.madtechsolutions.tech/og-image.png",
+    "sameAs": [
+      "https://github.com/madtechsolutions2026"
+    ]
+  }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Mad Tech Solutions",
     "image": "https://www.madtechsolutions.tech/og-image.png",
-    "logo": "https://www.madtechsolutions.tech/logo.png",
+    "logo": "https://www.madtechsolutions.tech/favicon.png",
     "@id": "https://www.madtechsolutions.tech/#organization",
     "url": "https://www.madtechsolutions.tech/",
     "telephone": "+917095682464",
