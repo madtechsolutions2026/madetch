@@ -1,6 +1,7 @@
 import React from "react";
 import { COMPANY } from "../data/siteContent";
 import { LEGAL_DOCS } from "../data/legalContent";
+import { SQUADRIDE, SQUADRIDE_DOCS } from "../data/squadrideContent";
 
 const SITE_LINKS = [
   { label: "Work", href: "#work" },
@@ -32,6 +33,18 @@ export default function Footer({ onNavigate }) {
           {SITE_LINKS.map((link) => (
             <a key={link.href} href={link.href}>
               {link.label}
+            </a>
+          ))}
+        </nav>
+
+        <nav className="footer-col" aria-label="Products">
+          <span className="footer-col-title">Products</span>
+          <a href={SQUADRIDE.path} onClick={(e) => onNavigate?.(e, SQUADRIDE.path)}>
+            {SQUADRIDE.name}
+          </a>
+          {SQUADRIDE_DOCS.map((doc) => (
+            <a key={doc.slug} href={doc.path} onClick={(e) => onNavigate?.(e, doc.path)}>
+              {doc.title.replace("SquadRide ", "")}
             </a>
           ))}
         </nav>

@@ -2,8 +2,16 @@ import React, { useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import { LEGAL_UPDATED, LEGAL_DOCS } from "../data/legalContent";
 import { COMPANY } from "../data/siteContent";
+import { SQUADRIDE_DOCS } from "../data/squadrideContent";
 
 export default function LegalPage({ doc, onNavigate }) {
+  /* A SquadRide policy links to the other SquadRide policies, not to the
+     studio's — a Play reviewer landing here should stay in the app's set. */
+  const isProductDoc = doc.path.startsWith("/squadride");
+  const siblings = (isProductDoc ? SQUADRIDE_DOCS : LEGAL_DOCS).filter(
+    (other) => other.slug !== doc.slug
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = `${doc.title} — ${COMPANY.name}`;
@@ -16,11 +24,11 @@ export default function LegalPage({ doc, onNavigate }) {
     <main className="legal">
       <a
         className="legal-back"
-        href="/"
-        onClick={(e) => onNavigate(e, "/")}
+        href={isProductDoc ? "/squadride" : "/"}
+        onClick={(e) => onNavigate(e, isProductDoc ? "/squadride" : "/")}
       >
         <ArrowLeft size={15} />
-        <span>Back to {COMPANY.name}</span>
+        <span>Back to {isProductDoc ? "SquadRide" : COMPANY.name}</span>
       </a>
 
       <header className="legal-head">
@@ -54,7 +62,7 @@ export default function LegalPage({ doc, onNavigate }) {
       <nav className="legal-other" aria-label="Other policies">
         <span className="legal-other-label">Also read</span>
         <div className="legal-other-links">
-          {LEGAL_DOCS.filter((other) => other.slug !== doc.slug).map((other) => (
+          {siblings.map((other) => (
             <a key={other.slug} href={other.path} onClick={(e) => onNavigate(e, other.path)}>
               {other.title}
             </a>

@@ -13,6 +13,7 @@
    ============================================================ */
 
 import { COMPANY } from "./siteContent";
+import { SQUADRIDE_DOCS } from "./squadrideContent";
 
 export const LEGAL_UPDATED = "20 September 2026";
 
@@ -404,7 +405,9 @@ const COOKIES = {
 
 export const LEGAL_DOCS = [PRIVACY, TERMS, REFUNDS, COOKIES];
 
-export const LEGAL_BY_PATH = LEGAL_DOCS.reduce((acc, doc) => {
+/* Studio policies plus the SquadRide app policies, which live at their
+   own paths so Google Play can point at a stable, product-specific URL. */
+export const LEGAL_BY_PATH = [...LEGAL_DOCS, ...SQUADRIDE_DOCS].reduce((acc, doc) => {
   acc[doc.path] = doc;
   return acc;
 }, {});

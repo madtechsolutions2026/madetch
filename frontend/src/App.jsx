@@ -16,10 +16,13 @@ import TrustSection from "./components/TrustSection";
 import CTABand from "./components/CTABand";
 import ContactSection from "./components/ContactSection";
 import ProjectsModal from "./components/ProjectsModal";
+import ProductBand from "./components/ProductBand";
+import SquadRideLanding from "./components/SquadRideLanding";
 import LegalPage from "./components/LegalPage";
 import Footer from "./components/Footer";
 import useScrollReveal from "./hooks/useScrollReveal";
 import { LEGAL_BY_PATH } from "./data/legalContent";
+import { SQUADRIDE } from "./data/squadrideContent";
 
 /* Trailing slashes and casing should not decide whether a page exists. */
 const normalize = (path) => {
@@ -48,6 +51,7 @@ export default function App() {
   }, []);
 
   const legalDoc = LEGAL_BY_PATH[route];
+  const isSquadRide = route === SQUADRIDE.path;
 
   useScrollReveal([route]);
 
@@ -71,6 +75,12 @@ export default function App() {
 
       {legalDoc ? (
         <LegalPage doc={legalDoc} onNavigate={navigate} />
+      ) : isSquadRide ? (
+        <SquadRideLanding
+          onNavigate={navigate}
+          onCursorEnter={handleCursorEnter}
+          onCursorLeave={handleCursorLeave}
+        />
       ) : (
         <>
           {/* Navigation Header */}
@@ -97,6 +107,13 @@ export default function App() {
               onCursorEnter={handleCursorEnter}
               onCursorLeave={handleCursorLeave}
               onSelectProject={setSelectedProject}
+            />
+
+            {/* Our own product */}
+            <ProductBand
+              onNavigate={navigate}
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
             />
 
             {/* Capabilities Grid */}
