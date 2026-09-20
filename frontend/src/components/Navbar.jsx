@@ -5,7 +5,7 @@ const NAV_ITEMS = [
   { label: "Work", target: "#work" },
   { label: "Capabilities", target: "#capabilities" },
   { label: "How we work", target: "#process" },
-  { label: "Estimator", target: "#estimator" },
+  { label: "Security", target: "#security" },
   { label: "FAQ", target: "#faq" },
 ];
 

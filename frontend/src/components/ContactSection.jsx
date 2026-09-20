@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Mail, Phone, MessageSquare, Send, CheckCircle, AlertCircle, Sparkles } from "lucide-react";
 import confetti from "canvas-confetti";
 
-export default function ContactSection({ onCursorEnter, onCursorLeave, initialData }) {
+export default function ContactSection({ onCursorEnter, onCursorLeave }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -13,15 +13,6 @@ export default function ContactSection({ onCursorEnter, onCursorLeave, initialDa
 
   const [status, setStatus] = useState({ type: "", message: "" });
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (initialData) {
-      setFormData((prev) => ({
-        ...prev,
-        message: `Hi MadTech, I calculated an estimate for a ${initialData.projectType} (${initialData.platform}) with ${initialData.aiIntegration}. Estimated budget: ${initialData.estimatedPrice}. Let's build this demo in 48 hours!`,
-      }));
-    }
-  }, [initialData]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

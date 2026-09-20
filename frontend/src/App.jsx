@@ -11,7 +11,6 @@ import Process from "./components/Process";
 import TechStackGrid from "./components/TechStackGrid";
 import StatsCounter from "./components/StatsCounter";
 import WhyUs from "./components/WhyUs";
-import ProjectEstimator from "./components/ProjectEstimator";
 import FAQ from "./components/FAQ";
 import TrustSection from "./components/TrustSection";
 import CTABand from "./components/CTABand";
@@ -32,7 +31,6 @@ export default function App() {
   const [cursorLabel, setCursorLabel] = useState("");
   const [isHovered, setIsHovered] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [estimateData, setEstimateData] = useState(null);
   const [route, setRoute] = useState(() => normalize(window.location.pathname));
 
   /* ---- Minimal history routing for the legal pages ---- */
@@ -61,11 +59,6 @@ export default function App() {
   const handleCursorLeave = () => {
     setCursorLabel("");
     setIsHovered(false);
-  };
-
-  const handleStartWithEstimate = (data) => {
-    setEstimateData(data);
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -133,13 +126,6 @@ export default function App() {
               onCursorLeave={handleCursorLeave}
             />
 
-            {/* Project Cost & Turnaround Estimator */}
-            <ProjectEstimator
-              onCursorEnter={handleCursorEnter}
-              onCursorLeave={handleCursorLeave}
-              onStartWithEstimate={handleStartWithEstimate}
-            />
-
             {/* Frequently Asked Questions */}
             <FAQ
               onCursorEnter={handleCursorEnter}
@@ -159,7 +145,6 @@ export default function App() {
             <ContactSection
               onCursorEnter={handleCursorEnter}
               onCursorLeave={handleCursorLeave}
-              initialData={estimateData}
             />
           </main>
 

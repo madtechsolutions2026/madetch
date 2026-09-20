@@ -41,7 +41,7 @@ const PRIVACY = {
       h: "2. What we collect",
       p: ["We collect only what a real business conversation requires."],
       ul: [
-        "Information you give us: your name, email address, phone number, company, and anything you type into an enquiry form, estimator or email.",
+        "Information you give us: your name, email address, phone number, company, and anything you type into an enquiry form or send us by email.",
         "Project information: the material a client shares so we can build the work — brand assets, content, access credentials to systems we are asked to deploy to, and business requirements.",
         "Technical information collected automatically: IP address, browser and device type, approximate location, referring page, pages viewed and time on them. This arrives through server logs and analytics rather than through anything you fill in.",
         "Cookies and similar technologies, as described in our cookie policy.",
@@ -192,7 +192,7 @@ const TERMS = {
     {
       h: "3. Estimates, demos and quotes",
       ul: [
-        "The estimator on this site produces an indicative range for planning. It is not a quotation and not an offer.",
+        "Any figure we discuss before a written quotation — in a call, an email or a message — is indicative only. It is not a quotation and not an offer.",
         "The free demo is a working sample built within approximately 48 hours of an agreed brief. It carries no obligation on either side, and intellectual property in it stays with us unless and until you engage us and pay for the project.",
         "A binding price exists only in a written quotation issued by us against a defined scope, and is valid for the period stated in it.",
       ],

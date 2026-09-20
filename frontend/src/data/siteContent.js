@@ -128,11 +128,11 @@ export const TRUST = [
 export const FAQS = [
   {
     q: "How fast can you actually deliver?",
-    a: "A custom demo lands within 48 hours of the brief. Full projects on this site have shipped in 10 days to 3 weeks depending on scope — a media portfolio is faster than a booking platform with a fleet database behind it. The estimator above gives you a realistic range for your own scope.",
+    a: "A custom demo lands within 48 hours of the brief. Full projects on this site have shipped in 10 days to 3 weeks depending on scope — a media portfolio is faster than a booking platform with a fleet database behind it. Send us the scope and we will commit to a date we can defend.",
   },
   {
     q: "What does a project cost?",
-    a: "It depends on what is being built, which is why the estimator exists rather than a price list. Use it for a grounded range, then we quote a fixed price against an agreed scope before any work starts. No hourly surprises.",
+    a: "It depends entirely on what is being built, so we do not publish a price list that would be wrong for everyone. Tell us the scope and you get a fixed quote against it before any work starts — one number, agreed up front, with no hourly surprises later.",
   },
   {
     q: "Is the 48-hour demo really free?",

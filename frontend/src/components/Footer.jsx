@@ -8,7 +8,7 @@ const SITE_LINKS = [
   { label: "How we work", href: "#process" },
   { label: "Security", href: "#security" },
   { label: "FAQ", href: "#faq" },
-  { label: "Estimator", href: "#estimator" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Footer({ onNavigate }) {
