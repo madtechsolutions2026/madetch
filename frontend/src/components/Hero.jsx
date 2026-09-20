@@ -1,5 +1,23 @@
 import React from "react";
-import { ArrowUpRight, Code, ShieldCheck, Zap } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+
+/* Splits a word into animated characters with a staggered delay.
+   `start` keeps the stagger continuous across separate words. */
+function SplitWord({ text, start = 0, className = "" }) {
+  return (
+    <span className={`word ${className}`}>
+      {text.split("").map((char, i) => (
+        <span
+          key={`${char}-${i}`}
+          className="char"
+          style={{ animationDelay: `${(start + i) * 0.035}s` }}
+        >
+          {char}
+        </span>
+      ))}
+    </span>
+  );
+}
 
 export default function Hero({ onCursorEnter, onCursorLeave }) {
   const handleScrollTo = (target) => {
@@ -14,24 +32,23 @@ export default function Hero({ onCursorEnter, onCursorLeave }) {
         Mad Tech Solutions — Digital Studio · India · Worldwide
       </p>
 
-      <h1 className="hero-title" aria-label="Mad about anything digital.">
-        <span className="line">
-          <span className="word">
-            M<em>A</em>D
-          </span>{" "}
-          <span className="word ghost">about</span>
+      <h1 className="hero-title" aria-label="Make anything digital.">
+        <span className="line" aria-hidden="true">
+          <SplitWord text="MAKE" start={0} />
         </span>
-        <span className="line">
-          <span className="word">ANYTHING</span>
+        <span className="line" aria-hidden="true">
+          <SplitWord text="anything" start={5} className="script" />
         </span>
-        <span className="line">
-          <span className="word grad">DIGITAL.</span>
+        <span className="line" aria-hidden="true">
+          <SplitWord text="DIGITAL." start={14} className="grad" />
         </span>
       </h1>
 
       <div className="hero-foot">
         <p className="hero-sub">
-          We take mad ideas and engineer them into bespoke websites, scalable mobile applications, custom AI agent integrations, and organic growth engines.
+          Websites, apps, AI agents and growth engines — built from first
+          principles for people who are tired of templates. You see a working
+          demo in 48 hours, before you pay a rupee.
         </p>
 
         <div className="hero-cta">
@@ -68,6 +85,19 @@ export default function Hero({ onCursorEnter, onCursorLeave }) {
         </svg>
         <span className="hero-badge-core">&lt;/&gt;</span>
       </div>
+
+      <a
+        className="hero-scroll"
+        href="#about"
+        aria-label="Scroll to content"
+        onClick={(e) => {
+          e.preventDefault();
+          handleScrollTo("#about");
+        }}
+      >
+        <span className="hero-scroll-label">Scroll</span>
+        <span className="hero-scroll-line" aria-hidden="true"></span>
+      </a>
     </section>
   );
 }

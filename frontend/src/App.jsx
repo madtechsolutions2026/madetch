@@ -1,23 +1,57 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import WebGLBackground from "./components/WebGLBackground";
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Marquee from "./components/Marquee";
 import Manifesto from "./components/Manifesto";
 import WorkShowcase from "./components/WorkShowcase";
 import Capabilities from "./components/Capabilities";
+import Process from "./components/Process";
 import TechStackGrid from "./components/TechStackGrid";
 import StatsCounter from "./components/StatsCounter";
+import WhyUs from "./components/WhyUs";
 import ProjectEstimator from "./components/ProjectEstimator";
+import FAQ from "./components/FAQ";
+import TrustSection from "./components/TrustSection";
+import CTABand from "./components/CTABand";
 import ContactSection from "./components/ContactSection";
 import ProjectsModal from "./components/ProjectsModal";
+import LegalPage from "./components/LegalPage";
 import Footer from "./components/Footer";
+import useScrollReveal from "./hooks/useScrollReveal";
+import { LEGAL_BY_PATH } from "./data/legalContent";
+
+/* Trailing slashes and casing should not decide whether a page exists. */
+const normalize = (path) => {
+  const trimmed = path.replace(/\/+$/, "").toLowerCase();
+  return trimmed === "" ? "/" : trimmed;
+};
 
 export default function App() {
   const [cursorLabel, setCursorLabel] = useState("");
   const [isHovered, setIsHovered] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [estimateData, setEstimateData] = useState(null);
+  const [route, setRoute] = useState(() => normalize(window.location.pathname));
+
+  /* ---- Minimal history routing for the legal pages ---- */
+  useEffect(() => {
+    const onPop = () => setRoute(normalize(window.location.pathname));
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  const navigate = useCallback((event, to) => {
+    if (event) event.preventDefault();
+    if (normalize(to) === normalize(window.location.pathname)) return;
+    window.history.pushState({}, "", to);
+    setRoute(normalize(to));
+  }, []);
+
+  const legalDoc = LEGAL_BY_PATH[route];
+
+  useScrollReveal([route]);
 
   const handleCursorEnter = (label) => {
     setCursorLabel(label);
@@ -31,10 +65,7 @@ export default function App() {
 
   const handleStartWithEstimate = (data) => {
     setEstimateData(data);
-    const contactSection = document.querySelector("#contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -45,69 +76,105 @@ export default function App() {
       {/* Magnetic Custom Cursor */}
       <CustomCursor cursorLabel={cursorLabel} isHovered={isHovered} />
 
-      {/* Navigation Header */}
-      <Navbar
-        onCursorEnter={handleCursorEnter}
-        onCursorLeave={handleCursorLeave}
-      />
+      {legalDoc ? (
+        <LegalPage doc={legalDoc} onNavigate={navigate} />
+      ) : (
+        <>
+          {/* Navigation Header */}
+          <Navbar
+            onCursorEnter={handleCursorEnter}
+            onCursorLeave={handleCursorLeave}
+          />
 
-      <main>
-        {/* Hero Section */}
-        <Hero
-          onCursorEnter={handleCursorEnter}
-          onCursorLeave={handleCursorLeave}
-        />
+          <main>
+            {/* Hero Section */}
+            <Hero
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+            />
 
-        {/* Manifesto Statement */}
-        <Manifesto />
+            {/* Scrolling Capability Band */}
+            <Marquee />
 
-        {/* Selected Work Showcase */}
-        <WorkShowcase
-          onCursorEnter={handleCursorEnter}
-          onCursorLeave={handleCursorLeave}
-          onSelectProject={setSelectedProject}
-        />
+            {/* Manifesto Statement */}
+            <Manifesto />
 
-        {/* Capabilities Grid */}
-        <Capabilities
-          onCursorEnter={handleCursorEnter}
-          onCursorLeave={handleCursorLeave}
-        />
+            {/* Selected Work Showcase */}
+            <WorkShowcase
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+              onSelectProject={setSelectedProject}
+            />
 
-        {/* Stats Counters */}
-        <StatsCounter />
+            {/* Capabilities Grid */}
+            <Capabilities
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+            />
 
-        {/* Interactive Fullstack Tech Stack */}
-        <TechStackGrid
-          onCursorEnter={handleCursorEnter}
-          onCursorLeave={handleCursorLeave}
-        />
+            {/* How We Work */}
+            <Process
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+            />
 
-        {/* Project Cost & Turnaround Estimator */}
-        <ProjectEstimator
-          onCursorEnter={handleCursorEnter}
-          onCursorLeave={handleCursorLeave}
-          onStartWithEstimate={handleStartWithEstimate}
-        />
+            {/* Stats Counters */}
+            <StatsCounter />
 
-        {/* Contact & Inquiries */}
-        <ContactSection
-          onCursorEnter={handleCursorEnter}
-          onCursorLeave={handleCursorLeave}
-          initialData={estimateData}
-        />
-      </main>
+            {/* Differentiators */}
+            <WhyUs
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+            />
 
-      {/* Project Deep-Dive Modal */}
-      <ProjectsModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-        onCursorEnter={handleCursorEnter}
-        onCursorLeave={handleCursorLeave}
-      />
+            {/* Interactive Fullstack Tech Stack */}
+            <TechStackGrid
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+            />
+
+            {/* Project Cost & Turnaround Estimator */}
+            <ProjectEstimator
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+              onStartWithEstimate={handleStartWithEstimate}
+            />
+
+            {/* Frequently Asked Questions */}
+            <FAQ
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+            />
+
+            {/* Security & Compliance */}
+            <TrustSection onNavigate={navigate} />
+
+            {/* Closing Call To Action */}
+            <CTABand
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+            />
+
+            {/* Contact & Inquiries */}
+            <ContactSection
+              onCursorEnter={handleCursorEnter}
+              onCursorLeave={handleCursorLeave}
+              initialData={estimateData}
+            />
+          </main>
+
+          {/* Project Deep-Dive Modal */}
+          <ProjectsModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+            onCursorEnter={handleCursorEnter}
+            onCursorLeave={handleCursorLeave}
+          />
+        </>
+      )}
 
       {/* Footer */}
-      <Footer />
+      <Footer onNavigate={navigate} />
     </div>
   );
 }
