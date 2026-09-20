@@ -2512,3 +2512,179 @@ section {
   font-size: 12px;
   color: var(--ink-faint);
 }
+
+/* ============================================================
+   SQUADRIDE THEME
+   The product pages wear the Android app's palette, not the
+   studio's. Values mirror core/designsystem/Theme.kt — if the
+   app's Palette changes, change these with it.
+   ============================================================ */
+body.sr-page {
+  /* Palette.Night / Surface / SurfaceRaised / Outline */
+  --bg: #0e1116;
+  --bg-card: rgba(22, 26, 33, 0.72);
+  --bg-card-hover: rgba(30, 35, 44, 0.94);
+  --hairline: #2a303a;
+  --hairline-light: #3a424f;
+
+  /* Palette.TextPrimary / TextSecondary */
+  --ink: #f4f6f9;
+  --ink-dim: #a2abb8;
+  --ink-faint: rgba(162, 171, 184, 0.5);
+
+  /* Palette.Sunset — brand accent replaces the studio blue */
+  --blue: #ff6a2b;
+  --blue-glow: rgba(255, 106, 43, 0.22);
+
+  background: #0e1116;
+}
+
+/* The studio's starfield is not the product's. */
+body.sr-page #gl-canvas {
+  display: none;
+}
+
+/* ---- Typography: the app is bold sans, sentence case, tight ---- */
+body.sr-page .sr-title,
+body.sr-page .section-title,
+body.sr-page .cta-title,
+body.sr-page .why-title,
+body.sr-page .faq-q-text,
+body.sr-page .sr-step-grid h3,
+body.sr-page .legal-title,
+body.sr-page .legal-section h2,
+body.sr-page .product-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.02em;
+}
+
+body.sr-page .sr-title {
+  letter-spacing: -0.035em;
+  line-height: 1.0;
+}
+
+/* The serif italic is a Mad Tech signature — here it becomes the accent. */
+body.sr-page .serif,
+body.sr-page .section-title .serif,
+body.sr-page .cta-title .serif {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 700;
+  text-transform: none;
+  color: var(--blue);
+  padding: 0;
+}
+
+body.sr-page .sr-title-dim {
+  color: var(--ink-dim);
+}
+
+body.sr-page .sr-title-accent {
+  color: var(--blue);
+}
+
+/* ---- Primary button: Sunset with white text, as in the app ---- */
+body.sr-page .btn {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
+  border-radius: 16px;
+  letter-spacing: 0.04em;
+}
+
+body.sr-page .btn:hover {
+  background: #e2541a;
+  border-color: #e2541a;
+  box-shadow: 0 10px 30px rgba(255, 106, 43, 0.28);
+}
+
+body.sr-page .btn.ghost-btn {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--hairline-light);
+}
+
+body.sr-page .btn.ghost-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--ink);
+  box-shadow: none;
+}
+
+/* ---- Shapes: Theme.kt uses 10 / 16 / 24 / 28dp ---- */
+body.sr-page .why-grid,
+body.sr-page .sr-step-grid {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+body.sr-page .trust-card,
+body.sr-page .sr-status-demo,
+body.sr-page .sr-privacy-inner,
+body.sr-page .product-card {
+  border-radius: 24px;
+}
+
+body.sr-page .form-input,
+body.sr-page .form-textarea,
+body.sr-page .form-select {
+  border-radius: 12px;
+  background: rgba(22, 26, 33, 0.8);
+  border-color: var(--hairline);
+}
+
+body.sr-page .form-input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-glow);
+}
+
+body.sr-page .legal-back,
+body.sr-page .trust-doc-links a,
+body.sr-page .legal-other-links a {
+  border-radius: 12px;
+}
+
+body.sr-page .trust-doc-links a:hover,
+body.sr-page .legal-other-links a:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #ffffff;
+}
+
+/* ---- Status colours: exactly SquadColors, never decorative ---- */
+body.sr-page .sr-status-demo .green { background: #22c55e; box-shadow: 0 0 10px rgba(34, 197, 94, 0.45); }
+body.sr-page .sr-status-demo .amber { background: #f5a524; box-shadow: 0 0 10px rgba(245, 165, 36, 0.45); }
+body.sr-page .sr-status-demo .red { background: #ef4444; box-shadow: 0 0 10px rgba(239, 68, 68, 0.45); }
+body.sr-page .sr-status-demo .grey { background: #8b95a1; box-shadow: none; }
+
+body.sr-page .sr-status-demo {
+  background: rgba(22, 26, 33, 0.85);
+}
+
+/* ---- Cards pick up the app's raised surface ---- */
+body.sr-page .why-card {
+  background: #12161c;
+}
+
+body.sr-page .why-card:hover {
+  background: #1e232c;
+}
+
+body.sr-page .sr-step-grid li {
+  background: #12161c;
+}
+
+body.sr-page .sr-step-grid li:hover {
+  background: #1e232c;
+}
+
+body.sr-page .sr-privacy-inner,
+body.sr-page .product-card {
+  background: linear-gradient(135deg, rgba(255, 106, 43, 0.08), rgba(255, 255, 255, 0.015));
+}
+
+/* ---- Footer follows the product on these pages ---- */
+body.sr-page .footer {
+  border-top-color: var(--hairline);
+}

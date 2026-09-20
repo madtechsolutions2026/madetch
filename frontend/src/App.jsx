@@ -53,6 +53,13 @@ export default function App() {
   const legalDoc = LEGAL_BY_PATH[route];
   const isSquadRide = route === SQUADRIDE.path;
 
+  /* SquadRide pages wear the app's own palette, not the studio's. */
+  useEffect(() => {
+    const onProduct = route.startsWith(SQUADRIDE.path);
+    document.body.classList.toggle("sr-page", onProduct);
+    return () => document.body.classList.remove("sr-page");
+  }, [route]);
+
   useScrollReveal([route]);
 
   const handleCursorEnter = (label) => {

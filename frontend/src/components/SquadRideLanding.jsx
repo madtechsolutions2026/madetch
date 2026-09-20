@@ -73,8 +73,8 @@ export default function SquadRideLanding({ onNavigate, onCursorEnter, onCursorLe
 
         <h1 className="sr-title">
           <span className="line">Stay together</span>
-          <span className="line sr-title-serif">when you travel</span>
-          <span className="line grad">together.</span>
+          <span className="line sr-title-dim">when you travel</span>
+          <span className="line sr-title-accent">together.</span>
         </h1>
 
         <p className="sr-lede">{SQUADRIDE.pitch}</p>
